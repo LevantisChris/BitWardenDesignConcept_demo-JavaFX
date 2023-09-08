@@ -5,18 +5,15 @@
 }
 .button:hover
 {
-    -fx-background-color: #6393E7;
+    -fx-background-color: #336600;
+    -fx-background-radius: 5em;
 }
 .button:pressed
 {
-    -fx-background-color: #165DDB;
+    -fx-background-color: #336600;
     -fx-background-radius: 5em;
 }
-.button:focused {
-    -fx-background-color: #165DDB;
-    -fx-border-color: #165DDB;
-    -fx-background-radius: 5em;
-}
+
 
 .text-field {
       -fx-background-color: #2C2C2C;
