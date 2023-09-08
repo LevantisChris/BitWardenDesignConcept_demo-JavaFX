@@ -17,3 +17,14 @@
     -fx-border-color: #165DDB;
     -fx-background-radius: 5em;
 }
+
+.text-field {
+      -fx-background-color: #2C2C2C;
+      -fx-text-fill: #FFFFFF;
+      -fx-prompt-text-fill: white;
+}
+
+.text-field:focused {
+    -fx-background-color: #3A3A3A;
+    -fx-border-color: #1DB954;  /* Spotify green */
+}
