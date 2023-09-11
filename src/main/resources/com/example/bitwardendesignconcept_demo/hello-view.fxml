@@ -132,7 +132,10 @@
                         <TextField fx:id="tfSearch" promptText="Search Vault" stylesheets="@../../../css/style.css" BorderPane.alignment="CENTER" />
                      </top>
                      <center>
-                        <VBox fx:id="vItems" prefHeight="686.0" prefWidth="393.0" BorderPane.alignment="CENTER" />
+                        <VBox fx:id="vItems" prefHeight="686.0" prefWidth="393.0" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets />
+                           </BorderPane.margin></VBox>
                      </center>
                   </BorderPane>
                </children></VBox>

@@ -2,13 +2,22 @@ package com.example.bitwardendesignconcept_demo;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
-public class MainController {
+import java.io.IOException;
+import java.io.Serializable;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class MainController implements Initializable {
 
     @FXML
     private Button btnAllItems;
@@ -81,4 +90,29 @@ public class MainController {
         System.out.println("Button clicked");
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+           Node [] nodes = new Node[5];
+           for (int i = 0;i < nodes.length;i++) {
+               nodes[i] = FXMLLoader.load(getClass().getResource("mainitem.fxml"));
+               final int h = i;
+               nodes[i].setOnMouseEntered(evt -> {
+                   nodes[h].setStyle("-fx-background-color: #336600");
+               });
+               nodes[i].setOnMouseExited(evt -> {
+                   nodes[h].setStyle("-fx-background-color: #1E1E1E");
+               });
+               nodes[i].setOnMousePressed(evt -> {
+                   nodes[h].setStyle("-fx-background-color: #1E1E1E");
+                   // do something
+                   System.out.println("App obj pressed ...");
+               });
+               VBox.setMargin(nodes[i], new Insets(5, 0, 5, 0)); // 5px padding on the top and bottom
+               vItems.getChildren().add(nodes[i]);
+           }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
