@@ -1,4 +1,4 @@
-package com.example.bitwardendesignconcept_demo;
+package com.example.bitwardendesignconcept_demo.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,10 +11,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import models.AppModel;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -93,7 +95,17 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-           Node [] nodes = new Node[5];
+            /* NOTE: You can take them from a DB */
+            ArrayList<AppModel> app = new ArrayList<>();
+            app.add(new AppModel("Apple", "mail@apple.com", ""));
+            app.add(new AppModel("Telegram", "mail@telegram.com", ""));
+            app.add(new AppModel("Facebook", "mail@facebook.com", ""));
+            app.add(new AppModel("Adobe", "mail@adobe.com", ""));
+            app.add(new AppModel("Dribble", "mail@dribble.com", ""));
+            app.add(new AppModel("Google", "mail@google.com", ""));
+            app.add(new AppModel("Etsy", "mail@etsy.com", ""));
+
+            Node [] nodes = new Node[app.size()];
            for (int i = 0;i < nodes.length;i++) {
                nodes[i] = FXMLLoader.load(getClass().getResource("mainitem.fxml"));
                final int h = i;

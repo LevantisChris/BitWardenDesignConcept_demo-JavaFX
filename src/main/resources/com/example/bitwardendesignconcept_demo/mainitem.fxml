@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="53.0" prefWidth="283.0" style="-fx-background-color: #1E1E1E; -fx-border-radius: 5em;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="53.0" fx:controller="com.example.bitwardendesignconcept_demo.Controllers.MainItemController" prefWidth="283.0" style="-fx-background-color: #1E1E1E; -fx-border-radius: 5em;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="ivIcon" fitHeight="38.0" fitWidth="37.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
