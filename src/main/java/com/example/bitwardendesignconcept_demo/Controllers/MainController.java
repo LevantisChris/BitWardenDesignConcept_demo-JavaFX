@@ -1,5 +1,6 @@
 package com.example.bitwardendesignconcept_demo.Controllers;
 
+import com.example.bitwardendesignconcept_demo.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -97,32 +98,38 @@ public class MainController implements Initializable {
         try {
             /* NOTE: You can take them from a DB */
             ArrayList<AppModel> app = new ArrayList<>();
-            app.add(new AppModel("Apple", "mail@apple.com", ""));
-            app.add(new AppModel("Telegram", "mail@telegram.com", ""));
-            app.add(new AppModel("Facebook", "mail@facebook.com", ""));
-            app.add(new AppModel("Adobe", "mail@adobe.com", ""));
-            app.add(new AppModel("Dribble", "mail@dribble.com", ""));
-            app.add(new AppModel("Google", "mail@google.com", ""));
-            app.add(new AppModel("Etsy", "mail@etsy.com", ""));
+            app.add(new AppModel("Apple", "mail@apple.com", "/icons/Apple Logo.png"));
+            app.add(new AppModel("Telegram", "mail@telegram.com", "/icons/telegram.png"));
+            app.add(new AppModel("Facebook", "mail@facebook.com", "/icons/facebook.png"));
+            app.add(new AppModel("Adobe", "mail@adobe.com", "/icons/Adobe.png"));
+            app.add(new AppModel("Dribble", "mail@dribble.com", "/icons/dribble.png"));
+            app.add(new AppModel("Google", "mail@google.com", "/icons/google.png"));
+            app.add(new AppModel("Etsy", "mail@etsy.com", "/icons/etsy.png"));
 
             Node [] nodes = new Node[app.size()];
-           for (int i = 0;i < nodes.length;i++) {
-               nodes[i] = FXMLLoader.load(getClass().getResource("mainitem.fxml"));
-               final int h = i;
-               nodes[i].setOnMouseEntered(evt -> {
-                   nodes[h].setStyle("-fx-background-color: #336600");
-               });
-               nodes[i].setOnMouseExited(evt -> {
-                   nodes[h].setStyle("-fx-background-color: #1E1E1E");
-               });
-               nodes[i].setOnMousePressed(evt -> {
-                   nodes[h].setStyle("-fx-background-color: #1E1E1E");
-                   // do something
-                   System.out.println("App obj pressed ...");
-               });
-               VBox.setMargin(nodes[i], new Insets(5, 0, 5, 0)); // 5px padding on the top and bottom
-               vItems.getChildren().add(nodes[i]);
-           }
+               for (int i = 0;i < nodes.length;i++) {
+                   FXMLLoader loader = new FXMLLoader();
+                   loader.setLocation(HelloApplication.class.getResource("mainitem.fxml"));
+                   nodes[i] = loader.load();
+                   final int h = i;
+                   MainItemController mainItemController = loader.getController();
+                   mainItemController.setItemInfo(app.get(i).getAppName(),
+                                                  app.get(i).getAppEmail(),
+                                                  app.get(i).getAppIcon());
+                   nodes[i].setOnMouseEntered(evt -> {
+                       nodes[h].setStyle("-fx-background-color: #336600");
+                   });
+                   nodes[i].setOnMouseExited(evt -> {
+                       nodes[h].setStyle("-fx-background-color: #1E1E1E");
+                   });
+                   nodes[i].setOnMousePressed(evt -> {
+                       nodes[h].setStyle("-fx-background-color: #1E1E1E");
+                       // do something
+                       System.out.println("App obj pressed ...");
+                   });
+                   VBox.setMargin(nodes[i], new Insets(5, 0, 5, 0)); // 5px padding on the top and bottom
+                   vItems.getChildren().add(nodes[i]);
+               }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
