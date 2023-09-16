@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="717.0" prefWidth="1272.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bitwardendesignconcept_demo.Controllers.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="717.0" prefWidth="1272.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bitwardendesignconcept_demo.Controllers.MainController">
    <children>
       <BorderPane layoutX="-3.0" prefHeight="717.0" prefWidth="1275.0">
          <left>
@@ -180,12 +180,12 @@
                         </TextField>
                         <VBox layoutX="69.0" layoutY="314.0">
                            <children>
-                              <Label fx:id="lbIWebsite" prefHeight="31.0" prefWidth="442.0" text="Website" textFill="#a1a1a1">
+                              <Label prefHeight="31.0" prefWidth="442.0" text="Website" textFill="#a1a1a1">
                                  <font>
                                     <Font name="System Italic" size="18.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="26.0" prefWidth="446.0" text="adobe.com" textFill="WHITE">
+                              <Label fx:id="lbIWebsite" prefHeight="26.0" prefWidth="446.0" text="adobe.com" textFill="WHITE">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
